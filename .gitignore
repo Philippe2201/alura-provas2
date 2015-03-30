@@ -1,0 +1,11 @@
+out
+.classpath
+.project
+.settings
+.metadata
+*.class
+target
+
+.DS_Store
+
+/src/main/resources/META-INF/persistence.xml
