@@ -13,32 +13,32 @@ import br.com.caelum.vraptor.validator.Validator;
 public class ProvaController {
 	
 	private final Result result;
-	private  ProvaDao dao;
+	private final ProvaDao dao;
 	private final Validator validator;
-	//private final Mailer mailer;
 	
 	@Inject
-	public ProvaController(Result result, Validator validator){
+	public ProvaController(Result result, Validator validator, ProvaDao dao){
 		this.result = result;
 		this.validator = validator;
+		this.dao = dao;
 	}
 	
 	public ProvaController(){
-		this(null, null);
+		this(null, null, null);
 	}
 	
-	@Get()
-	public void resolver(int idProva){
+	@Get
+	public void resolver(Long idProva){
 		Prova prova = new Prova();
 		prova.setId(idProva);
 		
-		dao.encontrarProva(prova);
+		prova = dao.encontrarProva(prova);
 		
-		//prova.toString();
+		if(prova == null){
+			//TODO quando não encontrar a prova, o que faz?
+		}
+		
+		result.include("prova", prova);
 	}
-	
-	@Get("/teste")
-	public void teste(){
-		System.out.println("teste!");
-	}
+
 }

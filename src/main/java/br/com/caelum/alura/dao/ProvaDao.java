@@ -1,9 +1,9 @@
 package br.com.caelum.alura.dao;
 
+import java.math.BigInteger;
+
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-
-import org.hibernate.Session;
 
 import br.com.caelum.alura.model.Prova;
 
@@ -21,9 +21,7 @@ public class ProvaDao {
 	}
 	
 	public Prova encontrarProva(Prova prova){
-		System.out.println(manager);
-		manager.getTransaction().begin();
-		return manager.find(Prova.class, prova);
+		return manager.find(Prova.class, prova.getId());
 	}
 
 }

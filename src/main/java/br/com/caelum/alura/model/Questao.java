@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Questao {
@@ -22,6 +23,17 @@ public class Questao {
 	private String alternativa4;
 	
 	private int respostaCerta;
+	
+	@ManyToOne
+	private Prova prova;
+
+	public Prova getProva() {
+		return prova;
+	}
+
+	public void setProva(Prova prova) {
+		this.prova = prova;
+	}
 
 	public int getId() {
 		return id;
