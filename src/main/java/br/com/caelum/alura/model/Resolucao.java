@@ -11,19 +11,19 @@ import javax.persistence.ManyToOne;
 public class Resolucao {
 	 
 	@ManyToOne 
-	private Prova pova;
+	private Prova prova;
 	
 	@Id @GeneratedValue 
 	private int id;
 	
 	private String email;
 	
-	public Prova getPova() {
-		return pova;
+	public Prova getProva() {
+		return prova;
 	}
 
-	public void setPova(Prova pova) {
-		this.pova = pova;
+	public void setProva(Prova prova) {
+		this.prova = prova;
 	}
 
 	public int getId() {

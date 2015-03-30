@@ -16,18 +16,18 @@ public class Prova {
 	
 	private String titulo;
 	
-	private String obsercacao;
+	private String observacao;
 	
 	@OneToMany
 	private List<Questao> questoes;
 	
 
-	public String getObsercacao() {
-		return obsercacao;
+	public String getObservacao() {
+		return observacao;
 	}
 
-	public void setObsercacao(String obsercacao) {
-		this.obsercacao = obsercacao;
+	public void setObservacao(String observacao) {
+		this.observacao = observacao;
 	}
 
 	public List<Questao> getQuestoes() {
