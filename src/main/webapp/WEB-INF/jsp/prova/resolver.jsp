@@ -27,13 +27,14 @@
 	</div>
 	
 	<h3>${mensagem}</h3>
-	
+		<c:set var="numeroQuestao" scope="request" value="${1}"/>
 	    <c:forEach var="questao" items="${prova.questoes}">
-			<b>${questao.enunciado}</b>
+			<b><c:out value="${numeroQuestao}"/>. ${questao.enunciado}</b>
 			<p>a) ${questao.alternativa1 }</p>
 			<p>b) ${questao.alternativa2 }</p>
 			<p>c) ${questao.alternativa3 }</p>
 			<p>d) ${questao.alternativa4 }</p>
+			<c:set var="numeroQuestao" scope="request" value="${numeroQuestao + 1}"/>
 			<br/>
 	    </c:forEach>
 	
