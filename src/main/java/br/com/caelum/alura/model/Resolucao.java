@@ -3,39 +3,35 @@ package br.com.caelum.alura.model;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
- @Entity
+@Entity
 public class Resolucao {
-	 
-	@ManyToOne 
+
+	@ManyToOne
 	private Prova prova;
-	
-	@Id @GeneratedValue 
+
+	@Id
+	@GeneratedValue
 	private int id;
+
 	private String email;
 	
-//	private List<Reposta> resposta;
-//	
-//	
-//		
-//	public List<Reposta> getResposta() {
-//		return resposta;
-//	}
-//
-//	public void setResposta(List<Reposta> resposta) {
-//		this.resposta = resposta;
-//	}
+	@OneToMany(mappedBy = "resolucao", fetch = FetchType.EAGER)
+	private List<Resposta> resposta;
 
+	public List<Resposta> getResposta() {
+		return resposta;
+	}
 
-	
-	
-	
-//atributo  lista de respota aluno 
-	
+	public void setResposta(List<Resposta> resposta) {
+		this.resposta = resposta;
+	}
+
 	public Prova getProva() {
 		return prova;
 	}
@@ -59,14 +55,12 @@ public class Resolucao {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
-	public void getTotaldeAcertos(){
-		
-		
+
+	public void getTotaldeAcertos() {
+
 	}
-	
-	public void getMedia(){
-		
-		
+
+	public void getMedia() {
+
 	}
 }

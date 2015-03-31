@@ -1,7 +1,5 @@
 package br.com.caelum.alura.controller;
 
-
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,35 +19,39 @@ import br.com.caelum.vraptor.validator.Validator;
 
 @Controller
 public class RespostaController {
+	
 	private Prova id;
 	private Questao questao;
 	private Resposta respostaAluno;
 	private Validator validator;
 	
-	public  RespostaController(Prova id, Questao questao, Resposta respostaAluno, Validator valitadator){
+	RespostaDao dao;
+	Resolucao resolucao;	
+	ProvaDao provaDao;
+	
+	@Inject
+	public  RespostaController(Prova id, Questao questao, Resposta respostaAluno, Validator valitadator, RespostaDao dao, Resolucao resolucao, ProvaDao provaDao){
 		this.id = id;
 		this.questao = questao;
 		this.respostaAluno = respostaAluno;
 		this.validator = valitadator;
+		this.dao = dao;
+		this.resolucao = resolucao;
+		this.provaDao = provaDao;
 	}
-	@Inject
-	public RespostaController(){
-		this(null, null, null, null);
-		
-	}
-
-	@Inject
-	RespostaDao dao;
-
-	@Inject
-	Resolucao resolucao;
 	
-	@Inject
-	ProvaDao provaDao;
+	public RespostaController(){
+		this(null, null, null, null, null, null, null);	
+	}
 
 	
 	@Path("resposta/adicionar") @Post
 	public void adicionar(List<String> respostas, int idProva, String idAluno){
+		RespostaDao respostaDao = new RespostaDao();
+		Resposta r = new Resposta();
+		r.setId(1);
+		respostaDao.buscarReposta(r);
+		
 		
 		//busca a prova no banco
 		

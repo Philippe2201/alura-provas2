@@ -35,7 +35,7 @@ public class ProvaController {
 		prova = dao.encontrarProva(prova);
 		
 		if(prova == null){
-			//TODO quando não encontrar a prova, o que faz?
+			result.include("mensagem", "A prova não foi encontrada");
 		}
 		
 		result.include("prova", prova);
