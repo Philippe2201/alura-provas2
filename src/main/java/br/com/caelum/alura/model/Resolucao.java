@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
  @Entity
@@ -15,8 +16,25 @@ public class Resolucao {
 	
 	@Id @GeneratedValue 
 	private int id;
-	
 	private String email;
+	
+//	private List<Reposta> resposta;
+//	
+//	
+//		
+//	public List<Reposta> getResposta() {
+//		return resposta;
+//	}
+//
+//	public void setResposta(List<Reposta> resposta) {
+//		this.resposta = resposta;
+//	}
+
+
+	
+	
+	
+//atributo  lista de respota aluno 
 	
 	public Prova getProva() {
 		return prova;
