@@ -12,8 +12,8 @@
 
 		<!-- Aqui são listadas todas as entidades -->
 		<class>br.com.caelum.alura.model.Prova</class>
+ 		<class>br.com.caelum.alura.model.Resolucao</class>
 		<class>br.com.caelum.alura.model.Questao</class>
-		<class>br.com.caelum.alura.model.Resolucao</class>
 		<class>br.com.caelum.alura.model.Resposta</class>
 
 		<properties>
@@ -22,13 +22,14 @@
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/alura" />
 			<property name="javax.persistence.jdbc.user" value="root" />
-			<property name="javax.persistence.jdbc.password" value="" />
+			<property name="javax.persistence.jdbc.password" value="root" />
 
 			<!-- Configurações específicas do Hibernate -->
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.format_sql" value="true" />
+			
 		</properties>
 	</persistence-unit>
 </persistence>

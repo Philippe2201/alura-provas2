@@ -23,7 +23,6 @@ public class RespostaDao {
 	}
 
 	public Resposta buscarReposta(Resposta resposta) {
-		System.out.println(manager + " manager da respostaDao");
 		resposta = manager.find(Resposta.class, resposta.getId());
 		return resposta;
 	}

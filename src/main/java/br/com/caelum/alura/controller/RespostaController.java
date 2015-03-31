@@ -24,13 +24,14 @@ public class RespostaController {
 	private Questao questao;
 	private Resposta respostaAluno;
 	private Validator validator;
-	
+	ResolucaoDao resolucaoDao;
 	RespostaDao dao;
 	Resolucao resolucao;	
 	ProvaDao provaDao;
 	
 	@Inject
-	public  RespostaController(Prova id, Questao questao, Resposta respostaAluno, Validator valitadator, RespostaDao dao, Resolucao resolucao, ProvaDao provaDao){
+	public  RespostaController(Prova id, Questao questao, Resposta respostaAluno, Validator valitadator, 
+			RespostaDao dao, Resolucao resolucao, ProvaDao provaDao, ResolucaoDao resolucaoDao){
 		this.id = id;
 		this.questao = questao;
 		this.respostaAluno = respostaAluno;
@@ -38,19 +39,16 @@ public class RespostaController {
 		this.dao = dao;
 		this.resolucao = resolucao;
 		this.provaDao = provaDao;
+		this.resolucaoDao = resolucaoDao;
 	}
 	
 	public RespostaController(){
-		this(null, null, null, null, null, null, null);	
+		this(null, null, null, null, null, null, null, null);	
 	}
 
 	
 	@Path("resposta/adicionar") @Post
-	public void adicionar(List<String> respostas, int idProva, String idAluno){
-		RespostaDao respostaDao = new RespostaDao();
-		Resposta r = new Resposta();
-		r.setId(1);
-		respostaDao.buscarReposta(r);
+	public void adicionar(List<Integer> respostas, int idProva, String idAluno){
 		
 		
 		//busca a prova no banco
@@ -62,24 +60,26 @@ public class RespostaController {
 		
 		Resolucao email = new Resolucao();
 		email.setEmail(idAluno);
-//		List<Resposta> respostaList = new ArrayList<Resposta>();
-		//preenchendo as respostas
-				
+		List<Resposta> respostaList = new ArrayList<Resposta>();
+			
 		int index = 0;
 		for(Questao questao : prova.getQuestoes()) {
 			
 			Resposta resposta = new Resposta();
 			
 			resposta.setQuestao(questao);
-			resposta.setRespostaAluno(Integer.parseInt(respostas.get(index)));
+			resposta.setRespostaAluno(respostas.get(index));
 			
-			//dao.salvarResposta(resposta);
-			System.out.println(resposta);
+			
+			respostaList.add(resposta);
 			index++;
 		}
-//		Resolucao resolucao = new Resolucao();
-//		resolucao.setProva(prova);
-//		resolucao.set(respostaList);
+		Resolucao resolucao = new Resolucao();
+		resolucao.setProva(prova);
+		resolucao.setResposta(respostaList);
+		resolucao.setEmail(idAluno);
+		resolucaoDao.salvaResolucao(resolucao);
+		
 		
 		
 		System.out.println("oba");
