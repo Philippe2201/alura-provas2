@@ -1,5 +1,6 @@
 package br.com.caelum.alura.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -22,7 +23,16 @@ public class Resolucao {
 	private String email;
 	
 	@OneToMany(mappedBy = "resolucao", fetch = FetchType.EAGER)
-	private List<Resposta> resposta;
+	private List<Resposta> resposta = new ArrayList<Resposta>();
+	
+	public Resolucao() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Resolucao(Prova prova, String emailAluno) {
+		this.prova = prova;
+		email = emailAluno;
+	}
 
 	public List<Resposta> getResposta() {
 		return resposta;

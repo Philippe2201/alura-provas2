@@ -45,7 +45,7 @@
 			</div>
 			
 			Nome: <input type="text" name="name"> 
-			E-mail: <input type="text" name="idAluno" id="txtemail">
+			E-mail: <input type="text" name="emailAluno" id="txtemail">
 
 			<h3>${mensagem}</h3>
 

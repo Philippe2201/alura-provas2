@@ -2,6 +2,7 @@ package br.com.caelum.alura.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -71,6 +72,21 @@ public class Prova {
 	@Override
 	public String toString() {
 		return titulo;
+	}
+
+	public Resolucao criaResolucao(List<Integer> respostas, String emailAluno) {
+		Resolucao resolucao = new Resolucao(this, emailAluno);
+		int index = 0;
+
+		for (Questao questao : this.questoes) {
+
+			Integer valorDaResposta = respostas.get(index);
+			Resposta resposta = new Resposta(questao, valorDaResposta, resolucao);
+			resolucao.getResposta().add(resposta);
+			index++;
+		}
+		return resolucao;
+
 	}
 
 }

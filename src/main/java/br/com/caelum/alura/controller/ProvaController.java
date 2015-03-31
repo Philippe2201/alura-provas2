@@ -32,7 +32,7 @@ public class ProvaController {
 		Prova prova = new Prova();
 		prova.setId(idProva);
 		
-		prova = dao.encontrarProva(prova);
+		prova = dao.encontrarProva(idProva);
 		
 		if(prova == null){
 			result.include("mensagem", "A prova não foi encontrada");

@@ -19,9 +19,8 @@ public class Resposta {
 	
 	@ManyToOne
 	private Resolucao resolucao;
-	
-	public Resposta(int id, Questao questao, int respostaAluno, Resolucao resolucao){
-		this.id = id;
+
+	public Resposta(Questao questao, int respostaAluno, Resolucao resolucao){
 		this.questao = questao;
 		this.respostaAluno = respostaAluno;
 		this.resolucao = resolucao;
@@ -53,6 +52,14 @@ public class Resposta {
 
 	public void setRespostaAluno(int respostaAluno) {
 		this.respostaAluno = respostaAluno;
+	}
+	
+	public Resolucao getResolucao() {
+		return resolucao;
+	}
+
+	public void setResolucao(Resolucao resolucao) {
+		this.resolucao = resolucao;
 	}
 
 }
