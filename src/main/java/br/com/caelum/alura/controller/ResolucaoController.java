@@ -9,7 +9,9 @@ import br.com.caelum.alura.dao.ResolucaoDao;
 import br.com.caelum.alura.model.Prova;
 import br.com.caelum.alura.model.Resolucao;
 import br.com.caelum.vraptor.Controller;
+import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
+import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.validator.Validator;
 
 @Controller
@@ -18,16 +20,18 @@ public class ResolucaoController {
 	private Validator validator;
 	private ResolucaoDao resolucaoDao;
 	private ProvaDao provaDao;
+	private Result result;
 
 	@Inject
-	public ResolucaoController(Validator valitadator, ProvaDao provaDao, ResolucaoDao resolucaoDao) {
+	public ResolucaoController(Validator valitadator, ProvaDao provaDao, ResolucaoDao resolucaoDao, Result result) {
 		this.validator = valitadator;
 		this.provaDao = provaDao;
 		this.resolucaoDao = resolucaoDao;
+		this.result = result;
 	}
 
 	public ResolucaoController() {
-		this(null, null, null);
+		this(null, null, null, null);
 	}
 
 	@Post
@@ -35,5 +39,13 @@ public class ResolucaoController {
 		Prova prova = provaDao.encontrarProva(idProva);
 		Resolucao resolucao = prova.criaResolucao(respostas, emailAluno);
 		resolucaoDao.salvaResolucao(resolucao);
+		result.redirectTo(this).resultado(resolucao.getId());
+	}
+	
+	@Get
+	public void resultado(Long resolucaoId){
+		Resolucao resolucao = resolucaoDao.encontraResolucao(resolucaoId);
+		result.include("resultado", resolucao.getTotaldeAcertos());
+		System.out.println(resolucao.getTotaldeAcertos());
 	}
 }
