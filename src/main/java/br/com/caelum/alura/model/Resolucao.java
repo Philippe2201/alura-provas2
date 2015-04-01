@@ -80,8 +80,8 @@ public class Resolucao {
 	}
 	
 	public Double getNota(){
-		int totalDeAcertos = getTotaldeAcertos();
-		int totalDeQuestoes = prova.getQuestoes().size();
+		double totalDeAcertos = getTotaldeAcertos();
+		double totalDeQuestoes = prova.getQuestoes().size();
 		double nota = 10*(totalDeAcertos/totalDeQuestoes);
 		return nota;
 	}
