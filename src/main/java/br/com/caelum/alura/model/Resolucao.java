@@ -1,5 +1,7 @@
 package br.com.caelum.alura.model;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -79,11 +81,19 @@ public class Resolucao {
 		return totalDeAcertos;
 	}
 	
-	public Double getNota(){
+	public double getNota(){
 		double totalDeAcertos = getTotaldeAcertos();
 		double totalDeQuestoes = prova.getQuestoes().size();
 		double nota = 10*(totalDeAcertos/totalDeQuestoes);
+		
+		DecimalFormat df = new DecimalFormat("#.#");
+		df.setRoundingMode(RoundingMode.UP);
+		nota = Double.parseDouble(df.format(nota));
 		return nota;
+	}
+	
+	public int getNumeroDeQuestoes(){
+		return prova.getQuestoes().size();
 	}
 
 }

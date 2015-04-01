@@ -38,14 +38,15 @@ public class ResolucaoController {
 	public void adicionar(List<Integer> respostas, Long idProva, String emailAluno) {
 		Prova prova = provaDao.encontrarProva(idProva);
 		Resolucao resolucao = prova.criaResolucao(respostas, emailAluno);
+		System.out.println("Resolucao que acabou de ser criada | " + resolucao);
+		System.out.println("Quantidade de acertos: " + resolucao.getTotaldeAcertos());
 		resolucaoDao.salvaResolucao(resolucao);
 		result.redirectTo(this).resultado(resolucao.getId());
 	}
 	
 	@Get
 	public void resultado(Long resolucaoId){
-		Resolucao resolucao = resolucaoDao.encontraResolucao(resolucaoId);
-		result.include("resultado", resolucao.getTotaldeAcertos());
-		System.out.println(resolucao.getTotaldeAcertos());
+		Resolucao resolucao = resolucaoDao.encontraResolucaoComRespostas(resolucaoId);
+		result.include("resolucao", resolucao);
 	}
 }

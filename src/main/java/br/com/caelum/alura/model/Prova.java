@@ -79,7 +79,6 @@ public class Prova {
 		int index = 0;
 
 		for (Questao questao : this.questoes) {
-
 			Integer valorDaResposta = respostas.get(index);
 			Resposta resposta = new Resposta(questao, valorDaResposta, resolucao);
 			resolucao.getResposta().add(resposta);
