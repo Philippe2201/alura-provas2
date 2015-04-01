@@ -44,8 +44,7 @@
 				</div>
 			</div>
 			
-			Nome: <input type="text" name="name"> 
-			E-mail: <input type="text" name="emailAluno" id="txtemail">
+			E-mail: <input type="text" name="emailAluno" class="form-controll">
 
 			<h3>${mensagem}</h3>
 
