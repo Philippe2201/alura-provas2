@@ -15,20 +15,9 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
 
 <!-- Latest compiled and minified JavaScript -->
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
-<script type="text/javascript">
-	function enviar() {
 
-		var email = document.getElementById("txtemail");
-
-		var texto = email;
-
-		return true;
-
-	}
-</script>
 <title>Resolver Prova</title>
 </head>
 
