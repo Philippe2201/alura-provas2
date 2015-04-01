@@ -33,7 +33,7 @@
 </head>
 
 <body>
-	<form action=<c:url value='/resposta/adicionar'/> method="post">
+	<form action=<c:url value='/resolucao/adicionar'/> method="post">
 
 		<div class=container>
 
