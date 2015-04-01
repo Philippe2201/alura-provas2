@@ -27,5 +27,9 @@ public class ResolucaoDao {
 			respostaDao.salvarResposta(resposta);
 		}
 	}
+	
+	public Resolucao encontraResolucao(Long id){
+		return manager.find(Resolucao.class, id);
+	}
 
 }
