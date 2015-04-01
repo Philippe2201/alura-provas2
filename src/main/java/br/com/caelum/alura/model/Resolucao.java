@@ -18,15 +18,15 @@ public class Resolucao {
 
 	@Id
 	@GeneratedValue
-	private int id;
+	private Long id;
 
 	private String email;
 	
 	@OneToMany(mappedBy = "resolucao", fetch = FetchType.EAGER)
-	private List<Resposta> resposta = new ArrayList<Resposta>();
+	private List<Resposta> respostas = new ArrayList<Resposta>();
 	
 	public Resolucao() {
-		// TODO Auto-generated constructor stub
+
 	}
 
 	public Resolucao(Prova prova, String emailAluno) {
@@ -35,11 +35,11 @@ public class Resolucao {
 	}
 
 	public List<Resposta> getResposta() {
-		return resposta;
+		return respostas;
 	}
 
 	public void setResposta(List<Resposta> resposta) {
-		this.resposta = resposta;
+		this.respostas = resposta;
 	}
 
 	public Prova getProva() {
@@ -50,11 +50,11 @@ public class Resolucao {
 		this.prova = prova;
 	}
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -66,11 +66,12 @@ public class Resolucao {
 		this.email = email;
 	}
 
-	public void getTotaldeAcertos() {
-
+	public int getTotaldeAcertos() {
+		int totalDeAcertos = 0;
+		for(Resposta r : respostas){
+			if(r.getQuestao().getRespostaCerta() == r.getRespostaAluno()) totalDeAcertos++;
+		}
+		return totalDeAcertos;
 	}
 
-	public void getMedia() {
-
-	}
 }
