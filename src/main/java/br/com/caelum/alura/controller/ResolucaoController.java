@@ -41,7 +41,7 @@ public class ResolucaoController {
 		System.out.println("Resolucao que acabou de ser criada | " + resolucao);
 		System.out.println("Quantidade de acertos: " + resolucao.getTotaldeAcertos());
 		resolucaoDao.salvaResolucao(resolucao);
-		result.redirectTo(this).resultado(resolucao.getId());
+		result.forwardTo(this).resultado(resolucao.getId());
 	}
 	
 	@Get
