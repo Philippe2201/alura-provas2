@@ -65,6 +65,11 @@ public class Resolucao {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	@Override
+	public String toString(){
+		return "Resolucao id: " + id + " Quantidade de respostas: " + respostas.size();
+	}
 
 	public int getTotaldeAcertos() {
 		int totalDeAcertos = 0;
@@ -72,6 +77,13 @@ public class Resolucao {
 			if(r.getQuestao().getRespostaCerta() == r.getRespostaAluno()) totalDeAcertos++;
 		}
 		return totalDeAcertos;
+	}
+	
+	public Double getNota(){
+		int totalDeAcertos = getTotaldeAcertos();
+		int totalDeQuestoes = prova.getQuestoes().size();
+		double nota = 10*(totalDeAcertos/totalDeQuestoes);
+		return nota;
 	}
 
 }
