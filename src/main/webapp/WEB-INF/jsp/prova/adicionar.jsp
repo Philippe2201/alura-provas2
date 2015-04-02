@@ -107,13 +107,12 @@
 
 					<div class="col-md-3">
 						<div class="form-group">
-							<label class="label_respsotaCorreta" for="respostaCorreta">Resposta Correta:</label> 
-							<select class="select_respostaCorreta form-control" id="questoes[0].respostaCorreta" name="questoes[0].respostaCorreta">
-								<option>a</option>
-								<option>b</option>
-								<option>c</option>
-								<option>d</option>
-								<option>e</option>
+							<label class="label_respostaCorreta" for="respostaCorreta">Resposta Correta:</label> 
+							<select class="select_respostaCorreta form-control" id="questoes[0].respostaCerta" name="questoes[0].respostaCerta">
+								<option value="1">a</option>
+								<option value="2">b</option>
+								<option value="3">c</option>
+								<option value="4">d</option>
 							</select>
 						</div>
 					</div>
@@ -128,7 +127,7 @@
 						<label class="label_respsotaCorreta">Opções:</label><br>
 						<button type="button" id="btnAdd" name="btnAdd" class="btn btn-info">Adicionar Questão</button>
 						<button type="button" id="btnDel" name="btnDel" class="btn btn-danger" disabled="disabled">Remover Questão</button>
-					
+						<button type="submit">Adicionar Prova</button>
 					</div>
 				
 				</div>

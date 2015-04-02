@@ -1,11 +1,15 @@
 package br.com.caelum.alura.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import br.com.caelum.alura.dao.ProvaDao;
 import br.com.caelum.alura.model.Prova;
+import br.com.caelum.alura.model.Questao;
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
+import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.validator.Validator;
 
@@ -26,7 +30,10 @@ public class ProvaController {
 	public ProvaController(){
 		this(null, null, null);
 	}
-	
+	@Get
+	public void adicionar(){
+		
+	}
 	@Get
 	public void resolver(Long idProva){
 		Prova prova = new Prova();
@@ -39,6 +46,12 @@ public class ProvaController {
 		}
 		
 		result.include("prova", prova);
+	}
+	@Post
+	public void adicionar(List<Questao> questoes, String titulo, String observacao) {
+		Prova prova = new Prova(titulo, observacao,questoes);
+		dao.salvaProva(prova);
+		
 	}
 
 }

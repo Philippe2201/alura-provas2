@@ -30,11 +30,13 @@ public class Prova {
 
 	}
 
-	public Prova(Long id, String titulo, String observacao, List<Questao> questoes) {
-		this.id = id;
+	public Prova(String titulo, String observacao, List<Questao> questoes) {
 		this.titulo = titulo;
 		this.observacao = observacao;
 		this.questoes = questoes;
+		for(Questao questao : questoes){
+			questao.setProva(this);
+		}
 	}
 
 	public String getObservacao() {
