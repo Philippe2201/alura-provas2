@@ -1,9 +1,12 @@
 package br.com.caelum.alura.model;
 
+import java.awt.Color;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,6 +14,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
+import br.com.caelum.vraptor.validator.I18nMessage;
 
 @Entity
 public class Resolucao {
@@ -86,14 +91,12 @@ public class Resolucao {
 		double totalDeQuestoes = prova.getQuestoes().size();
 		double nota = 10*(totalDeAcertos/totalDeQuestoes);
 		
-		DecimalFormat df = new DecimalFormat("#.#");
-		df.setRoundingMode(RoundingMode.UP);
-		nota = Double.parseDouble(df.format(nota));
 		return nota;
 	}
 	
 	public int getNumeroDeQuestoes(){
 		return prova.getQuestoes().size();
 	}
+
 
 }
