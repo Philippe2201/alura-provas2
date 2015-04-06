@@ -24,7 +24,7 @@
 <body>
 	<form action=<c:url value='/resolucao/adicionar'/> method="post">
 
-		<div class=container>
+		<div class="container" style="margin-bottom: 20px">
 
 			<div class="row">
 				<div class="col-md-12">
@@ -33,9 +33,17 @@
 				</div>
 			</div>
 			
-			E-mail: <input type="text" name="emailAluno" class="form-controll">
-
-			<h3>${mensagem}</h3>
+			<h1>${mensagem}</h1>
+			
+			<div class="row">
+				<div class="col-md-4">
+					<div class="form-group">
+						<label class="control-label" for="emailAluno">Digite aqui seu email:</label>
+						<input type="text" class="form-control" name="emailAluno" id="emailAluno" rows="2"></input>
+					</div>
+				</div>
+			</div>
+			<br>
 
 			<c:set var="numeroQuestao" scope="request" value="${1}" />
 

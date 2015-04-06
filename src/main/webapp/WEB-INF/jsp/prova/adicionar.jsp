@@ -25,7 +25,7 @@
 	
 		<h1>Prova adicionada com sucesso!</h1>
 		
-		<h3>Envie esse link para os seus alunos: ${link }</h3>
+		<h3 class="link">Envie esse link para os seus alunos: ${link }</h3>
 		
 		
 	</div>
