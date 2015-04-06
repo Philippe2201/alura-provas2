@@ -123,13 +123,13 @@
 			
 			<div class="row">
 					
-					<div class="col-md-9">
-						<label class="label_respsotaCorreta">Opções:</label><br>
+					<div class="col-md-12">
+						<label>Opções:</label><br>
 						<button type="button" id="btnAdd" name="btnAdd" class="btn btn-info">Adicionar Questão</button>
 						<button type="button" id="btnDel" name="btnDel" class="btn btn-danger" disabled="disabled">Remover Questão</button>
-						<button type="submit">Adicionar Prova</button>
+						<button type="submit" class="btn btn-default" style="float: right">Adicionar Prova</button>
+						
 					</div>
-				
 				</div>
 	</form>
 
