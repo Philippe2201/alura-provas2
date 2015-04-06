@@ -30,10 +30,12 @@ public class ProvaController {
 	public ProvaController(){
 		this(null, null, null);
 	}
+	
 	@Get
-	public void adicionar(){
-		
+	public void formulario(){
+
 	}
+	
 	@Get
 	public void resolver(Long idProva){
 		Prova prova = new Prova();
@@ -49,9 +51,11 @@ public class ProvaController {
 	}
 	@Post
 	public void adicionar(List<Questao> questoes, String titulo, String observacao) {
-		Prova prova = new Prova(titulo, observacao,questoes);
+		Prova prova = new Prova(titulo, observacao, questoes);
+		System.out.println("enunciado da questao 0: " + questoes.get(0).getEnunciado());
 		dao.salvaProva(prova);
-		
+		String link = "http://localhost:8080/alura-provas2/prova/resolver?idProva=" + prova.getId();
+		result.include("link", link);
 	}
 
 }
